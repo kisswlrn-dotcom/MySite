@@ -8,34 +8,49 @@
     <link
       rel="shortcut icon"
       href="./images/hantengu.ico"
-      type="images/x-icon"
-    />
-
+      type="ges/x-icon"/>
+    
+   
     <title>jaseon&#39;s Website</title>
+     <link rel="stylesheet" href="./css/style.css" />
+
     <!-- &#39; -->
   </head>
   <body>
     <!-- header -->
-    <header>
-      <div>
-        <img src="./images/ralph.ico" alt="logo" />
-        <h1><a href="#">Hwon</a></h1>
+    <header class="header">
+      <div class="header__logo">
+        <img class="header__logo__img" src="./images/hantengu.ico" alt="logo" />
+        <h1 class="header__logo__title"><a href="#">jaseon</a></h1>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#home">홈으로</a></li>
-          <li><a href="#about">Hwon</a></li>
-          <li><a href="#skills">기술</a></li>
-          <li><a href="#work">포트폴리오</a></li>
-          <li><a href="#license">자격증</a></li>
-          <li><a href="#contact">연락처</a></li>
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li><a href="#home" class="header__menu__item active">홈으로</a></li>
+          <li><a href="#about" class="header__menu__item">Ryuzy</a></li>
+          <li><a href="#skills" class="header__menu__item">기술</a></li>
+          <li><a href="#work" class="header__menu__item">포트폴리오</a></li>
+          <li><a href="#license" class="header__menu__item">자격증</a></li>
+          <li><a href="#contact" class="header__menu__item">연락처</a></li>
         </ul>
       </nav>
     </header>
-    <!-- main -->
+    <!-- Main -->
     <main>
       <!-- home -->
-      <section id="home"></section>
+      <section id="home">
+        <h2 class="home__title">
+         <img class="home__avatar" src="./images/hantengu.jpg" alt="프로필 사진" />
+        <h2 class="home__title">
+          안녕하세요!!<br /><strong class="home__title--strong">Jason</strong>
+          입니다.
+        </h2>
+        <p class="home__description">우주에서 가장 뛰어난 AI 개발자입니다.</p>
+        <a class="home__contact" href="#contact">연락처</a>
+      </section>
+
+
+
+      </section>
       <!-- about -->
       <section id="about"></section>
       <!-- skills -->
