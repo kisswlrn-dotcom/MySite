@@ -25,18 +25,19 @@
 /* Global */
 /* Global */
 :root {
-  --color-primary: var(--color-black);
-  --color-primary-variant: var(--color-gray);
-  --color-accent: var(--color-blue);
-  --color-accent-variant: var(--color-orange);
-  --color-text: var(--color-white);
-  --color-black: #050a13;
-  --color-gray: #1b1e26;
-  --color-blue: #03e8f9;
-  --color-orange: #fd6413;
-  --color-white: #fff;
-  --size-max-width: 1200px;
+  --color-primary: #1c1010; /* 기존 검정 → 불빛 느낌 어두운 배경 */
+  --color-primary-variant: #1a0b00;
+  --color-accent: #ff4d00;
+  --color-accent-variant: #ffb300;
+  --color-text: #fff5e6;
+
+  --color-black: #050000;
+  --color-gray: #2b1207;
+  --color-blue: #ff7b00;
+  --color-orange: #ff3b00;
+  --color-white: #fff5e6;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -55,6 +56,7 @@ ul {
 .section {
   padding: 4rem;
   text-align: center;
+  background: linear-gradient(180deg, #330600, #660b00, #990f00, #cc3300);
 }
 .max-container {
   max-width: var(--size-max-width);
@@ -75,7 +77,6 @@ button {
 }
 /* header */
 .header {
-  background-color: var(--color-primary);
   position: fixed;
   top: 0;
   width: 100%;
@@ -103,17 +104,20 @@ button {
 }
 .header__menu__item {
   padding: 8px 16px;
+  color: white;
 }
 .header__menu__item:hover {
-  border-bottom: 1px solid var(--color-accent);
+  border-bottom: 1px;
+  color: #c85010;
 }
 .header__menu__item.active {
-  border: 1px solid var(--color-accent);
+  border: 1px;
   border-radius: 5px;
 }
 /* home */
 #home {
-  background-color: var(--color-primary);
+  background: linear-gradient(180deg, #330600, #660b00, #990f00, #cc3300);
+
   color: var(--color-text);
   padding: 7rem 1rem 5rem;
   text-align: center;
@@ -122,19 +126,29 @@ button {
   width: 250px;
   height: 250px;
   border-radius: 100%;
-  border: 3px solid var(--color-accent);
+  border: 3px solid rgb(178, 52, 2);
   object-fit: cover;
 }
 .home__title {
   font-size: 3rem;
   margin-bottom: 1rem;
-}
-.home__title--strong {
-  color: var(--color-accent);
+  background: linear-gradient(90deg, #fff200, #ffb400, #ff6b00, #d00000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  text-shadow: 2px 2px 10px rgba(255, 80, 0, 0.5);
+  .home__title--strong {
+    color: var(--color-accent);
+  }
 }
 .home__description {
   font-size: 1.5rem;
+  background: linear-gradient(90deg, #ffe9a3, #ffb76b, #ff7f5b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
 }
+
 .home__contact {
   display: inline-block;
   background-color: var(--color-accent);
@@ -150,6 +164,9 @@ button {
   outline: 2px solid var(--color-accent);
 }
 /* about */
+#about {
+  background: linear-gradient(180deg, #330600, #660b00, #990f00, #cc3300);
+}
 .majors {
   display: flex;
   justify-content: space-between;
@@ -188,11 +205,18 @@ button {
   margin-bottom: 1rem;
 }
 .job__name {
-  color: var(--color-primary);
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #c00000;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
+
 .job__period {
-  color: var(--color-primary);
-  font-size: 0.8rem;
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 2rem;
+  font-weight: 550;
+  color: #333;
 }
 .jobs img {
   width: 300px;
@@ -436,7 +460,7 @@ button {
 
   .header__menu {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     padding: 1rem 4rem;
     gap: 1rem;
   }
@@ -460,6 +484,7 @@ button {
   }
 
   .major {
+    width: 80%;
     max-width: 25rem;
   }
 
@@ -496,5 +521,61 @@ button {
     height: 3rem;
     bottom: 1.5rem;
     right: 1.5rem;
+  }
+}
+/* 햄버거 버튼 스타일 */
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.header__hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* 햄버거 활성화 시 X로 변환 */
+.header__hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.header__hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.header__hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* 모바일에서만 햄버거 보이기 */
+@media screen and (max-width: 768px) {
+  .header__hamburger {
+    display: flex;
+  }
+
+  .header__menu {
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .header__menu.show {
+    display: flex;
   }
 }
